@@ -18,6 +18,11 @@
         <h3>Jogjakarta, 24 November 2024</h3>
       </div>
     </section>
+    <audio id="song" autoplay loop muted>
+      <source src="audio/save-and-sound.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+  </audio>
+  
 
     <!-- Bingkai -->
     <section>
@@ -120,50 +125,35 @@
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const song = document.querySelector('#song');
+    song.muted = false;
+});
+
+    </script>
     
-    <div id="audio-container">
+    <!-- <div id="audio-container">
       <audio id="song" autoplay loop>
         <source src="audio/save-and-sound.mp3" type="audio/mp3">
       </audio>
   
-      <div class="audio-icon-wrapper" style="display: none;">
+      <div class="audio-icon-wrapper" style="display: blo;">
         <i class="bi bi-disc"></i>
       </div>
-    </div>
+    </div> -->
   <footer>
   </footer>
-  <script>
-    const rootElement = document.querySelector(":root");
+  <!-- <script>
     const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
     const audioIcon = document.querySelector('.audio-icon-wrapper i');
     const song = document.querySelector('#song');
-    let isPlaying = false;
-
-    function disableScroll() {
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-      window.onscroll = function () {
-        window.scrollTo(scrollTop, scrollLeft);
-      }
-
-      rootElement.style.scrollBehavior = 'auto';
-    }
-
-    function enableScroll() {
-      window.onscroll = function () { }
-      rootElement.style.scrollBehavior = 'smooth';
-      // localStorage.setItem('opened', 'true');
-      playAudio();
-    }
-
-    function playAudio() {
-      song.volume = 0.1;
-      audioIconWrapper.style.display = 'flex';
-      song.play();
-      isPlaying = true;
-    }
-
+    let isPlaying = true;  // Set awal ke true untuk autoplay
+  
+    // Atur volume awal
+    song.volume = 0.1;
+  
+    // Kontrol untuk memutar/jeda musik
     audioIconWrapper.onclick = function () {
       if (isPlaying) {
         song.pause();
@@ -174,14 +164,10 @@
         audioIcon.classList.add('bi-disc');
         audioIcon.classList.remove('bi-pause-circle');
       }
-
-      isPlaying = !isPlaying;
+  
+      isPlaying = !isPlaying;  // Toggle status isPlaying
     }
-
-    // if (!localStorage.getItem('opened')) {
-    //   disableScroll();
-    // }
-    disableScroll();
-  </script>
+  </script> -->
+  
   </body>
 </html>
